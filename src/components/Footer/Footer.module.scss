@@ -1,0 +1,35 @@
+.inner {
+	padding: 30px 0;
+}
+
+.col {
+	display: flex;
+	justify-content: space-between;
+}
+
+.title {
+	font-size: 16px;
+	font-weight: 500;
+	margin: 0 0 22px;
+}
+
+.info {
+	li {
+		margin: 0 0 6px;
+		font-size: 14px;
+		font-weight: 300;
+	}
+}
+.contacts {
+	li {
+		margin: 0 0 6px;
+		font-size: 14px;
+		font-weight: 300;
+	}
+}
+
+.copy {
+	margin: 50px 0 0;
+	display: flex;
+	justify-content: space-between;
+}
