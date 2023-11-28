@@ -1,0 +1,11 @@
+.item {
+	margin-bottom: 30px;
+	border-bottom: 1px solid #000;
+	padding: 20px 0;
+
+	summary {
+		font-size: 20px;
+		font-weight: 500;
+		cursor: pointer;
+	}
+}

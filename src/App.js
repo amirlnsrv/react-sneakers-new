@@ -15,6 +15,9 @@ import AppContext from "./context";
 
 import SneakerPage from "./pages/SneakerPage";
 import ScrollToTop from "./utils/ScrollToTop";
+import Contacts from "./pages/Contacts";
+import FAQ from "./pages/FAQ";
+import Delivery from "./pages/Delivery";
 
 function App() {
   const [sneakers, setSneakers] = useState([]);
@@ -138,47 +141,54 @@ function App() {
       }}
     >
       <div className="wrapper clear">
-        <Drawer
-          sneakers={cartSneakers}
-          onClose={() => setCartOpened(false)}
-          onRemove={onRemoveSneaker}
-          opened={cartOpened}
-        />
+        <div className="inner">
+          <Drawer
+            sneakers={cartSneakers}
+            onClose={() => setCartOpened(false)}
+            onRemove={onRemoveSneaker}
+            opened={cartOpened}
+          />
 
-        <Header onClickCart={() => setCartOpened(true)} />
+          <Header onClickCart={() => setCartOpened(true)} />
 
-        <ScrollToTop />
+          <ScrollToTop />
+          <Routes>
+            <>
+              <Route
+                path=""
+                element={
+                  <Home
+                    sneakers={sneakers}
+                    cartSneakers={cartSneakers}
+                    searchValue={searchValue}
+                    setSearchValue={setSearchValue}
+                    onChangeSearchInput={onChangeSearchInput}
+                    onAddToFavourite={onAddToFavourite}
+                    onAddToCart={onAddToCart}
+                    isLoading={isLoading}
+                  />
+                }
+              />
 
-        <Routes>
-          <>
-            <Route
-              path=""
-              element={
-                <Home
-                  sneakers={sneakers}
-                  cartSneakers={cartSneakers}
-                  searchValue={searchValue}
-                  setSearchValue={setSearchValue}
-                  onChangeSearchInput={onChangeSearchInput}
-                  onAddToFavourite={onAddToFavourite}
-                  onAddToCart={onAddToCart}
-                  isLoading={isLoading}
-                />
-              }
-            />
+              <Route
+                path="/sneaker/:id"
+                element={<SneakerPage sneakers={sneakers} />}
+              />
 
-            <Route
-              path="/sneaker/:id"
-              element={<SneakerPage sneakers={sneakers} />}
-            />
+              <Route path="contacts" element={<Contacts />} />
 
-            <Route path="favourites" element={<Favourites />} />
+              <Route path="delivery" element={<Delivery />} />
 
-            <Route path="orders" element={<Orders />} />
-          </>
-        </Routes>
+              <Route path="faq" element={<FAQ />} />
+
+              <Route path="favourites" element={<Favourites />} />
+
+              <Route path="orders" element={<Orders />} />
+            </>
+          </Routes>
+        </div>
+        <Footer />
       </div>
-      <Footer />
     </AppContext.Provider>
   );
 }

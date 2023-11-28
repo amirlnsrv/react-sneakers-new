@@ -1,6 +1,7 @@
 import React from "react";
 
 import styles from "./Footer.module.scss";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
@@ -10,9 +11,15 @@ const Footer = () => {
           <div className={styles.col}>
             <ul className={styles.info}>
               <p className={styles.title}>ИНФОРМАЦИЯ</p>
-              <li>Контакты</li>
-              <li>Доставка</li>
-              <li>FAQ</li>
+              <Link to="/contacts">
+                <li>Контакты</li>
+              </Link>
+              <Link to="/delivery">
+                <li>Доставка</li>
+              </Link>
+              <Link to="/faq">
+                <li>FAQ</li>
+              </Link>
             </ul>
             <ul className={styles.contacts}>
               <p className={styles.title}>КОНТАКТЫ</p>
